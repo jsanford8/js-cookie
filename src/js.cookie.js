@@ -19,7 +19,7 @@
 		};
 	}
 }(function () {
-	function extend () {
+	var customExtend = function customExtend () {
 		var i = 0;
 		var result = {};
 		for (; i < arguments.length; i++) {
@@ -41,7 +41,7 @@
 			// Write
 
 			if (arguments.length > 1) {
-				attributes = extend({
+				attributes = customExtend({
 					path: '/'
 				}, api.defaults, attributes);
 
@@ -137,7 +137,7 @@
 		api.defaults = {};
 
 		api.remove = function (key, attributes) {
-			api(key, '', extend(attributes, {
+			api(key, '', customExtend(attributes, {
 				expires: -1
 			}));
 		};
